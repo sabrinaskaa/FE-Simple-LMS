@@ -1,8 +1,17 @@
+# Dependensi
 node_modules/
+
+# Hasil build
 dist/
+
+# File konfigurasi environment lokal (API Backend / target URL)
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Sistem / OS
 .DS_Store
+Thumbs.db
+
