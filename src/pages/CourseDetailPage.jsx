@@ -240,7 +240,8 @@ export default function CourseDetailPage() {
     setContents(contentData)
     setReviews(reviewRes.data.data || [])
     setRatingAvg(reviewRes.data.rating_avg || courseData.rating_avg || 0)
-    setCategories(categoryRes.data.data || categoryRes.data || [])
+    const categoryList = categoryRes.data.data || categoryRes.data
+    setCategories(Array.isArray(categoryList) ? categoryList : [])
     setPrerequisites(prereqRes.data || [])
     setEditCourse({
       name: courseData.name || '',

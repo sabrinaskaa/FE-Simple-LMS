@@ -46,7 +46,8 @@ export default function CoursesPage() {
 
   async function loadCategories() {
     const { data } = await api.get('/categories', { params: { page_size: 100 } })
-    setCategories(data.data || data || [])
+    const list = data?.data || data
+    setCategories(Array.isArray(list) ? list : [])
   }
 
   async function loadWishlist() {
