@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/:path*",
+      "destination": "https://dragster-gnat-unvocal.ngrok-free.dev/api/:path*"
+    },
+    {
       "source": "/((?!api|assets|favicon.ico|vite.svg).*)",
       "destination": "/index.html"
     }
