@@ -9,6 +9,7 @@ import TaskPoller from '../components/TaskPoller'
 import { useAuth } from '../context/AuthContext'
 import { fullName, rupiah, statusLabel } from '../utils/format'
 import { isAdmin, isInstructor } from '../utils/roles'
+import ChatbotPopup from '../components/ChatbotPopup'
 
 const EMPTY_COURSE = { name: '', description: '', price: 0, level: 'beginner', status: 'draft', category_id: '' }
 
@@ -189,6 +190,7 @@ function StudentDashboard({ user }) {
           ))}
         </div>
       </section>
+      <ChatbotPopup />
     </div>
   )
 }
