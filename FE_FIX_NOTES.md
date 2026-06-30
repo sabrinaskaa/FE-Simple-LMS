@@ -1,5 +1,19 @@
 # FE Simple LMS - Fix Notes
 
+## Update terbaru v5 (Chatbot Assistant)
+
+Halaman Student Dashboard (`/dashboard`) sekarang dilengkapi dengan fitur **AI Chatbot Assistant Popup** terintegrasi dengan Google Gemini API.
+
+Perubahan utama:
+
+- Penambahan komponen `ChatbotPopup.jsx` di pojok kanan bawah dashboard siswa;
+- Chatbot terhubung ke backend `POST /api/v1/chatbot`;
+- UI/UX Chatbot yang interaktif dengan:
+  - Balasan pesan instan dari AI yang bersahabat dalam Bahasa Indonesia;
+  - Rekomendasi kursus otomatis dari database jika ditanyakan;
+  - Tampilan balon percakapan yang modern dengan scroll otomatis ke pesan terbaru;
+  - Integrasi status loading dan penanganan error.
+
 ## Update terbaru v4
 
 Halaman `Learning Progress` (`/progress/:enrollmentId`) sekarang sudah diperbaiki supaya section dan lesson tidak hanya menjadi list statis.
