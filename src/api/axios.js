@@ -7,6 +7,10 @@ const api = axios.create({ baseURL: API_BASE_URL })
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('access_token')
   if (token) config.headers.Authorization = `Bearer ${token}`
+  
+  // Menghindari halaman peringatan ngrok (ngrok browser warning) agar API langsung merespons dengan JSON
+  config.headers['ngrok-skip-browser-warning'] = 'true'
+  
   return config
 })
 
@@ -23,7 +27,11 @@ api.interceptors.response.use(
         return Promise.reject(error)
       }
       try {
-        const { data } = await axios.post(`${API_BASE_URL}/auth/refresh`, { refresh })
+        const { data } = await axios.post(
+          `${API_BASE_URL}/auth/refresh`,
+          { refresh },
+          { headers: { 'ngrok-skip-browser-warning': 'true' } }
+        )
         localStorage.setItem('access_token', data.access)
         original.headers = original.headers || {}
         original.headers.Authorization = `Bearer ${data.access}`
